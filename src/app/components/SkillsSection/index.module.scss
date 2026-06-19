@@ -1,0 +1,77 @@
+@use "@/styles/variables" as *;
+
+.section {
+  padding: 80px 40px;
+  background-color: $bg-sub;
+
+  @include desktop {
+    padding: 120px 80px;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: $accent;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.title {
+  @include heading-h2;
+  font-weight: 700;
+  margin-bottom: 48px;
+  color: $primary;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.cardTitle {
+  @include heading-h3;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: $primary;
+}
+
+.cardText {
+  @include paragraph;
+  color: $text-muted;
+  margin-bottom: 24px;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardTag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  background-color: $bg-sub;
+  border-radius: 100px;
+  color: $text-muted;
+}
