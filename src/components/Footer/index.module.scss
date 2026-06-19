@@ -1,0 +1,13 @@
+@use "@/styles/variables" as *;
+
+.footer {
+  padding: 40px;
+  border-top: 1px solid $border-color;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 12px;
+  color: $text-muted;
+  letter-spacing: 0.05em;
+}
