@@ -1,0 +1,113 @@
+@use "@/styles/variables" as *;
+
+.section {
+  padding: 80px 40px;
+
+  @include desktop {
+    padding: 120px 80px;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: $accent;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.title {
+  @include heading-h2;
+  font-weight: 700;
+  color: $primary;
+}
+
+.more {
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-muted;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.thumbnail {
+  width: 100%;
+  height: 240px;
+  background-color: $bg-sub;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-muted;
+  font-size: 14px;
+}
+
+.cardBody {
+  padding: 24px;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cardTag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  background-color: $bg-sub;
+  border-radius: 100px;
+  color: $accent;
+}
+
+.cardTitle {
+  @include heading-h3;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: $primary;
+}
+
+.cardText {
+  @include paragraph;
+  color: $text-muted;
+}
