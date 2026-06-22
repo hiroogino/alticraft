@@ -1,0 +1,81 @@
+@use "@/styles/variables" as *;
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 40px 80px;
+
+  @include desktop {
+    padding: 120px 80px 80px;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: $accent;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.title {
+  @include heading-h1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: $primary;
+}
+
+.accent {
+  color: $accent;
+}
+
+.description {
+  @include paragraph;
+  color: $text-muted;
+  max-width: 480px;
+  margin-bottom: 48px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border: 1px solid $border-color;
+  border-radius: 100px;
+  color: $text-muted;
+  letter-spacing: 0.05em;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: $primary;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
