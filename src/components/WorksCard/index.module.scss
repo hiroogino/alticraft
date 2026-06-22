@@ -1,0 +1,49 @@
+@use "@/styles/variables" as *;
+
+.card {
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.body {
+  padding: 24px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  background-color: $bg-sub;
+  border-radius: 100px;
+  color: $accent;
+}
+
+.title {
+  @include heading-h3;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: $primary;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+.description {
+  @include paragraph;
+  color: $text-muted;
+}

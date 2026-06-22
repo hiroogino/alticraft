@@ -1,0 +1,40 @@
+@use "@/styles/variables" as *;
+
+.richText {
+  line-height: 1.8;
+
+  :global(h2) {
+    @include heading-h2;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  :global(p) {
+    @include paragraph;
+    margin-bottom: 16px;
+    color: $text-muted;
+  }
+
+  :global(strong) {
+    font-weight: 700;
+    color: $primary;
+  }
+
+  :global(ul) {
+    margin-bottom: 16px;
+    padding-left: 24px;
+    list-style: disc;
+  }
+
+  :global(li) {
+    @include paragraph;
+    color: $text-muted;
+    margin-bottom: 8px;
+  }
+
+  :global(a) {
+    color: $accent;
+    text-decoration: underline;
+  }
+}
