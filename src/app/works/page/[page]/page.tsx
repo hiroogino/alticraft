@@ -4,11 +4,14 @@ import WorksCard from "@/components/WorksCard"
 import Pagination from "@/components/Pagination"
 import styles from "../../page.module.scss"
 
-const PER_PAGE = 6
+const PER_PAGE = 2
 
 export async function generateStaticParams() {
   const data = await client.getList<Work>({ endpoint: "works" })
   const totalPages = Math.ceil(data.totalCount / PER_PAGE)
+
+  // totalPagesが1以下の場合は空配列を返す（2ページ目以降が存在しない）
+  if (totalPages <= 1) return []
 
   return Array.from({ length: totalPages - 1 }, (_, i) => ({
     page: String(i + 2),
