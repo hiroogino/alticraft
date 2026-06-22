@@ -1,0 +1,50 @@
+@use "@/styles/variables" as *;
+
+.container {
+  padding: 120px 40px 80px;
+
+  @include desktop {
+    padding: 160px 80px 120px;
+  }
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  background-color: $bg-sub;
+  border-radius: 100px;
+  color: $accent;
+}
+
+.title {
+  @include heading-h2;
+  font-weight: 700;
+  color: $primary;
+  margin-bottom: 16px;
+}
+
+.description {
+  @include paragraph;
+  color: $text-muted;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid $border-color;
+}
+
+.content {
+  margin-top: 48px;
+}
