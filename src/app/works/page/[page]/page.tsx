@@ -4,7 +4,7 @@ import WorksCard from "@/components/WorksCard"
 import Pagination from "@/components/Pagination"
 import styles from "../../page.module.scss"
 
-const PER_PAGE = 2
+const PER_PAGE = 4
 
 export async function generateStaticParams() {
   const data = await client.getList<Work>({ endpoint: "works" })
