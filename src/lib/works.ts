@@ -1,6 +1,6 @@
 import { client, type Work } from "@/lib/microcms"
 
-const PER_PAGE = 2
+const PER_PAGE = 4
 
 export async function getWorksPage(page: number) {
   const data = await client.getList<Work>({

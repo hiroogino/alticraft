@@ -2,15 +2,16 @@ import { getWorksPage } from "@/lib/works"
 import { client, type Work } from "@/lib/microcms"
 import WorksCard from "@/components/WorksCard"
 import Pagination from "@/components/Pagination"
+import Breadcrumb from "@/components/Breadcrumb"
+import { BREADCRUMBS } from "@/constants/breadcrumbs"
 import styles from "../../page.module.scss"
 
-const PER_PAGE = 2
+const PER_PAGE = 4
 
 export async function generateStaticParams() {
   const data = await client.getList<Work>({ endpoint: "works" })
   const totalPages = Math.ceil(data.totalCount / PER_PAGE)
 
-  // totalPagesが1以下の場合は空配列を返す（2ページ目以降が存在しない）
   if (totalPages <= 1) return []
 
   return Array.from({ length: totalPages - 1 }, (_, i) => ({
@@ -29,6 +30,7 @@ export default async function WorksPagePage({
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
+        <Breadcrumb items={BREADCRUMBS.WORKS} />
         <p className={styles.label}>Works</p>
         <h1 className={styles.title}>実績</h1>
         <div className={styles.grid}>

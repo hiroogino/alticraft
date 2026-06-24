@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import type { Work } from "@/lib/microcms"
 import styles from "./index.module.scss"
 
@@ -11,6 +12,14 @@ export default function WorksCard({ work }: Props) {
 
   return (
     <div className={styles.card}>
+      <div className={styles.thumbnail}>
+        <Image
+          src={work.thumbnail.url}
+          alt={work.title}
+          fill
+          style={{ objectFit: "cover" }}
+        />
+      </div>
       <div className={styles.body}>
         <ul className={styles.tags}>
           {tags.map((tag) => (

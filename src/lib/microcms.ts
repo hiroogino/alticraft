@@ -12,6 +12,11 @@ export type Work = {
   description: string
   tags: string        // "Next.js, microCMS" のようなカンマ区切り文字列
   content: string
+  thumbnail: {
+    url: string
+    width: number
+    height: number
+  }
   createdAt: string
   publishedAt: string
 }

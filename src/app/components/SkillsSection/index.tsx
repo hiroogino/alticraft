@@ -1,3 +1,6 @@
+"use client"
+
+import { useInView } from "@/hooks/useInView"
 import styles from "./index.module.scss"
 
 const SKILLS = [
@@ -19,21 +22,24 @@ const SKILLS = [
 ]
 
 export default function SkillsSection() {
+  const { ref, inView } = useInView()
+
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
         <p className={styles.label}>Skills</p>
         <h2 className={styles.title}>できること</h2>
-        <div className={styles.grid}>
+        <div
+          ref={ref}
+          className={`${styles.grid} fadeIn ${inView ? "isVisible" : ""}`}
+        >
           {SKILLS.map((skill) => (
             <div key={skill.title} className={styles.card}>
               <h3 className={styles.cardTitle}>{skill.title}</h3>
               <p className={styles.cardText}>{skill.text}</p>
               <ul className={styles.cardTags}>
                 {skill.tags.map((tag) => (
-                  <li key={tag} className={styles.cardTag}>
-                    {tag}
-                  </li>
+                  <li key={tag} className={styles.cardTag}>{tag}</li>
                 ))}
               </ul>
             </div>
