@@ -1,5 +1,8 @@
+"use client"
+
 import styles from "./index.module.scss"
 import { ROUTES } from "@/constants/routes"
+import { useInView } from "@/hooks/useInView"
 import Link from "next/link"
 
 const WORKS = [
@@ -18,6 +21,8 @@ const WORKS = [
 ]
 
 export default function WorksSection() {
+  const { ref, inView } = useInView()
+
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
@@ -28,7 +33,10 @@ export default function WorksSection() {
             すべて見る →
           </Link>
         </div>
-        <div className={styles.grid}>
+        <div
+          ref={ref}
+          className={`${styles.grid} fadeIn ${inView ? "isVisible" : ""}`}
+        >
           {WORKS.map((work) => (
             <div key={work.id} className={styles.card}>
               <div className={styles.thumbnail}>
@@ -37,9 +45,7 @@ export default function WorksSection() {
               <div className={styles.cardBody}>
                 <ul className={styles.cardTags}>
                   {work.tags.map((tag) => (
-                    <li key={tag} className={styles.cardTag}>
-                      {tag}
-                    </li>
+                    <li key={tag} className={styles.cardTag}>{tag}</li>
                   ))}
                 </ul>
                 <h3 className={styles.cardTitle}>{work.title}</h3>
