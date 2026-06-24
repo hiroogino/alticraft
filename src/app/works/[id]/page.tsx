@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { getWorkDetail } from "@/lib/works"
 import { client, type Work } from "@/lib/microcms"
 import RichText from "@/components/RichText"
@@ -40,6 +41,15 @@ export default async function WorkDetailPage({
         </ul>
         <h1 className={styles.title}>{work.title}</h1>
         <p className={styles.description}>{work.description}</p>
+        <div className={styles.thumbnail}>
+          <Image
+            src={work.thumbnail.url}
+            alt={work.title}
+            fill
+            style={{ objectFit: "cover" }}
+            priority
+          />
+        </div>
         <div className={styles.content}>
           <RichText html={work.content} />
         </div>
